@@ -1,3 +1,3 @@
-npm install 
+yarn install
 
-npm install firebase --save
+yarn start
