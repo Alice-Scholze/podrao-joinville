@@ -11,7 +11,7 @@ export const DataTable = ({data}) => {
     };
 
     return <React.Fragment>
-        <Typography variant="headline" component="h2">Data</Typography>
+        <Typography variant="headline" component="h2">Lista dos Podrões </Typography>
         <Table selectable="false">
             <TableHead>
                 <TableRow>              
@@ -28,11 +28,11 @@ export const DataTable = ({data}) => {
                             <TableCell>{item.endereco}</TableCell>   
                             <TableCell>
                                 <Button onClick={() => remove(item.key)}>
-                                    Remove
+                                    Remover
                                 </Button>
 
                                 <Button component={props => <Link to={privateUrls.edit.pathWithouParam + item.key} {...props}/>}>
-                                    Edit
+                                    Editar
                                 </Button>
 
                             </TableCell>

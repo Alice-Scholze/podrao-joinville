@@ -15,7 +15,7 @@ ReactDOM.render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
             <Router>
-                <Route path={urls.home.path} component={App}/>
+                <Route path={'/'} component={App}/>
             </Router>
         </PersistGate>
     </Provider>

@@ -21,7 +21,7 @@ const styles = {
 const TopBar = ({userAuth, logout, classes}) => (<AppBar position="static">
     <Toolbar>
 
-        <IconButton color="inherit" aria-label="Menu" component={props => <Link to={urls.home.path} {...props}/>}>
+        <IconButton color="inherit" aria-label="Menu" component={props => <Link to={"/"} {...props}/>}>
             <MenuIcon/>
         </IconButton>
 

@@ -7,7 +7,7 @@ export const Welcome = () => {
     return (
         <React.Fragment>
 
-            <Typography variant="headline" component="h2">OI</Typography>
+            <Typography variant="headline" component="h2"></Typography>
             {
                 Object.values(urls).map((url, index) => {
 

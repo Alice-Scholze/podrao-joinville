@@ -6,7 +6,7 @@ import {urls} from "../../utils/urlUtils";
 
 const ifLoggedGoToHome = (userAuth, Component, props) => {
     return userAuth != null
-        ? <Redirect to={urls.home.path}/>
+        ? <Redirect to={"/"}/>
         : <Component {...props}/>
 };
 
