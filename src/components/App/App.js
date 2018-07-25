@@ -17,6 +17,7 @@ import {login, logout} from "../../action/actionCreator";
 import {compose} from "recompose";
 import NavigationWrapper from '../NavigationWrapper/NavigationWrapper';
 import NavigationLoggedWrapper from "../NavigationWrapper/NavigationLoggedWrapper";
+import Avaliacao from "../avaliacao/avaliacao";
 
 const theme = createMuiTheme({
     palette: {
@@ -67,6 +68,14 @@ class App extends Component {
                             <Route exact path={privateUrls.edit.path}
                                    render={(props) =>
                                        <NavigationWrapper component={Add} {...props}/>}
+                            />
+                            <Route exact path={urls.avaliacao.path}
+                                   render={(props) =>
+                                       <NavigationWrapper component={Avaliacao} {...props}/>}
+                            />
+                            <Route exact path={privateUrls.selectEpresa.path}
+                                   render={(props) =>
+                                       <NavigationWrapper component={Avaliacao} {...props}/>}
                             />
                         </CardContent>
                     </Card>
