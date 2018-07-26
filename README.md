@@ -4,8 +4,5 @@ yarn add redux-persist redux prop-types react-redux recompose react-firebase-ima
 
 yarn start
 
-
-
-
-https://github.com/JedWatson/react-select      :  yarn add react-select
-https://github.com/chenglou/react-radio-group  :  npm install react-radio-group
+https://github.com/JedWatson/react-select     
+https://github.com/chenglou/react-radio-group  
