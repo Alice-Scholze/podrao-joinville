@@ -2,12 +2,12 @@ import {connect} from "react-redux";
 import {Redirect, withRouter} from "react-router-dom";
 import {compose} from "recompose";
 import React from "react";
-import {urls} from "../../utils/urlUtils";
+import {urls, privateUrls} from "../../utils/urlUtils";
 
 const ifNotLoggedGoToLogin = (userAuth, Component, props) => {
     return userAuth != null
         ? <Component {...props}/>
-        : <Redirect to={urls.login.path}/>
+        : <Redirect to={privateUrls.login.path}/>
 };
 
 const NavigationWrapper = ({userAuth, component, ...otherProps}) => {

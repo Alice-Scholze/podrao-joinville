@@ -1,7 +1,7 @@
 import {Button, TextField, Typography} from "material-ui";
 import React, {Component} from "react";
 import FirebaseService from "../../services/FirebaseService";
-import {urls} from "../../utils/urlUtils";
+import {urls, privateUrls} from "../../utils/urlUtils";
 import {withRouter} from "react-router-dom";
 import { firebaseAuth } from "../../utils/firebaseUtils";
 import SelectEmpresa from "./selectEmpresa";
@@ -50,7 +50,7 @@ class Avaliacao extends Component {
             keyEmpresa    
         };
         FirebaseService.pushData('avaliacoes', objToSubmit);
-
+        this.props.history.push(privateUrls.home.path);
     };
 
     handleChange = name => event => {
