@@ -1,15 +1,21 @@
-import {Button, TextField, Typography} from "material-ui";
+import {TextField} from "material-ui";
 import React, {Component} from "react";
-import FirebaseService from "../../services/FirebaseService";
 import {urls} from "../../utils/urlUtils";
 import {withRouter} from "react-router-dom";
-import { firebaseAuth } from "../../utils/firebaseUtils";
 import SelectEmpresa from "./selectEmpresa";
 import {RadioGroup, Radio} from 'react-radio-group';
+import {Button, Table, TableBody, TableCell, TableHead, TableRow, Typography} from "material-ui";
+import FirebaseService from "../../services/FirebaseService";
+import {firebaseDatabase, firebaseAuth} from '../../utils/firebaseUtils'
 
 var teste = null;
-class Avaliacao extends Component {
-
+class ListaAvaliacao extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+          options: []
+        }
+      }
     loadAvaliacoes() {
         let query = firebaseDatabase.ref('avaliacoes').limitToLast(100);
         query.on('value', dataSnapshot => {
@@ -56,9 +62,9 @@ class Avaliacao extends Component {
             </TableHead>
             <TableBody>
                 {
-                    data.map((item, index) =>
+                    this.state.options.map((item, index) =>
                         <TableRow key={index}>                           
-                            <TableCell>{item.empresa}</TableCell>
+                            <TableCell>{item.nomeEmpresa}</TableCell>
                             <TableCell>{item.sabor}</TableCell>
                             <TableCell>{item.custo}</TableCell>
                             <TableCell>{item.maionese}</TableCell>
@@ -75,4 +81,4 @@ class Avaliacao extends Component {
     }
 }
 
-export default withRouter(Avaliacao);
+export default withRouter(ListaAvaliacao);

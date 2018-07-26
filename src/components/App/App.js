@@ -18,6 +18,7 @@ import {compose} from "recompose";
 import NavigationWrapper from '../NavigationWrapper/NavigationWrapper';
 import NavigationLoggedWrapper from "../NavigationWrapper/NavigationLoggedWrapper";
 import Avaliacao from "../avaliacao/avaliacao";
+import ListaAvaliacao from "../avaliacao/lista";
 
 const theme = createMuiTheme({
     palette: {
@@ -61,6 +62,11 @@ class App extends Component {
                                                           data={this.state.data}
                                        />}
                             />
+                            <Route exact path={urls.listaAvaliacao.path}
+                                   render={(props) =>
+                                    <NavigationWrapper component={ListaAvaliacao} {...props}/>}
+                                  
+                            />
                             <Route exact path={urls.add.path}
                                    render={(props) =>
                                        <NavigationWrapper component={Add} {...props}/>}
@@ -77,6 +83,7 @@ class App extends Component {
                                    render={(props) =>
                                        <NavigationWrapper component={Avaliacao} {...props}/>}
                             />
+                            
                         </CardContent>
                     </Card>
 
