@@ -14,7 +14,7 @@ import {firebaseDatabase, firebaseAuth} from '../../utils/firebaseUtils'
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' }
 ];*/
-
+var teste = null;
 class Avaliacao extends Component {
   constructor(props){
     super(props);
@@ -25,7 +25,6 @@ class Avaliacao extends Component {
   }
 
   loadLeituras() {
-    console.log("oi");
     let query = firebaseDatabase.ref('leituras').limitToLast(100);
     query.on('value', dataSnapshot => {
         let items = [];
@@ -45,9 +44,16 @@ class Avaliacao extends Component {
     this.loadLeituras();
   }
 
+  
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
+    teste = selectedOption;
     console.log(`Option selected:`, selectedOption);
+  }
+
+  static OptionSelected(){
+    return teste;
+    //return selectedOption;
   }
 
   render() {

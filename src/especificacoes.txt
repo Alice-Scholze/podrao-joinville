@@ -1,5 +1,6 @@
-https://github.com/JedWatson/react-select
-https://jedwatson.github.io/react-select/
+https://github.com/JedWatson/react-select      :  yarn add react-select
+https://github.com/chenglou/react-radio-group  :  npm install react-radio-group
 
 
-yarn add react-select
+
+

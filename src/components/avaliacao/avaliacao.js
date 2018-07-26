@@ -4,13 +4,14 @@ import FirebaseService from "../../services/FirebaseService";
 import {urls} from "../../utils/urlUtils";
 import {withRouter} from "react-router-dom";
 import { firebaseAuth } from "../../utils/firebaseUtils";
-import SelectEmpresa from "./selectEmpresa"
+import SelectEmpresa from "./selectEmpresa";
+import {RadioGroup, Radio} from 'react-radio-group';
 
-
+var teste = null;
 class Avaliacao extends Component {
 
     state = {id: null, sabor: '', custo: '', maionese: '',
-            atedimento: '', tempo: '', ambiente: '', observacao: '', empresa: ''};
+            atendimento: '', tempo: '', ambiente: '', observacao: '', nomeEmpresa: '', keyEmpresa: ''};
 
     componentWillMount = () => {
         const {id} = this.props.match.params;
@@ -24,14 +25,16 @@ class Avaliacao extends Component {
 
     submit = (event) => {
         event.preventDefault();
-
-        const {sabor} = this.state;
-        const {custo} = this.state;      
-        const {maionese} = this.state;      
-        const {atedimento} = this.state;      
-        const {tempo} = this.state;      
-        const {ambiente} = this.state;      
+        let empresa = SelectEmpresa.OptionSelected();
+        var {sabor} = this.state;
+        var {custo} = this.state;      
+        var {maionese} = this.state;      
+        var {atendimento} = this.state;      
+        var {tempo} = this.state;      
+        var {ambiente} = this.state;      
         const {observacao} = this.state; 
+        var nomeEmpresa = empresa.label;
+        var keyEmpresa = empresa.value;
         
 
 
@@ -39,10 +42,12 @@ class Avaliacao extends Component {
             sabor,
             custo, 
             maionese,
-            atedimento,
+            atendimento,
             tempo,
             ambiente,
-            observacao    
+            observacao,
+            nomeEmpresa,
+            keyEmpresa    
         };
         FirebaseService.pushData('avaliacoes', objToSubmit);
 
@@ -50,63 +55,98 @@ class Avaliacao extends Component {
 
     handleChange = name => event => {
         this.setState({
-            [name]: event.target.value,
+            /*if(name = "sabor"){
+                sabor = event.target.value;
+            },
+            if(name = "custo"){
+                custo = event.target.value;
+            },
+            if(name = "maionese"){
+                maionese = event.target.value;
+            },
+            if(name = "atendimento"){
+                atendimento = event.target.value;
+            },
+            if(name = "tempo"){
+                tempo = event.target.value;
+            },
+            if(name = "ambiente"){
+                ambiente = event.target.value;
+            }*/
+            [name]: event
         });
-    };
-
+    };/*
+    handleChange(value, name) {
+        this.setState({[name]: value});
+      };
+    */
     render = () => {
         return (<React.Fragment>
-
+            
             <Typography variant="headline" component="h2">Avaliar Empresa</Typography>
             <SelectEmpresa/>
+            <form>
+            </form>
             <form onSubmit={this.submit}>
-                <TextField className="input-field"
-                           type="text"
-                           value={this.state.sabor}
-                           label="Sabor"
-                           required
-                           onChange={this.handleChange('sabor')}/>
+                <label>Sabor</label>
+                <RadioGroup name="sabor" sabor={this.state.sabor} onChange={this.handleChange('sabor')}>
+                <Radio value="1" />1
+                <Radio value="2" />2
+                <Radio value="3" />3
+                <Radio value="4" />4
+                <Radio value="5" />5
+                </RadioGroup>
 
-                <TextField className="input-field"
-                           type="text"
-                           label="Custo"
-                           value={this.state.custo}
-                           required
-                           onChange={this.handleChange('custo')}/>                
+                <label>Custo</label>
+                <RadioGroup name="custo" custo={this.state.custo} onChange={this.handleChange('custo')}>
+                <Radio value="1" />1
+                <Radio value="2" />2
+                <Radio value="3" />3
+                <Radio value="4" />4
+                <Radio value="5" />5
+                </RadioGroup>
 
-                <TextField className="input-field"
-                           type="text"
-                           label="Maionese"
-                           value={this.state.maionese}
-                           required
-                           onChange={this.handleChange('maionese')}/>
+                <label>Maiones</label>
+                <RadioGroup name="maionese" maionese={this.state.maionese} onChange={this.handleChange('maionese')}>
+                <Radio value="1" />1
+                <Radio value="2" />2
+                <Radio value="3" />3
+                <Radio value="4" />4
+                <Radio value="5" />5
+                </RadioGroup>          
 
-                <TextField className="input-field"
-                           type="text"
-                           label="Atendimento"
-                           value={this.state.atendimento}
-                           required
-                           onChange={this.handleChange('atendimento')}/>
-                
-                <TextField className="input-field"
-                           type="text"
-                           label="Tempo"
-                           value={this.state.tempo}
-                           required
-                           onChange={this.handleChange('tempo')}/>
+                <label>Atendimento</label>
+                <RadioGroup name="atendimento" atendimento={this.state.atendimento} onChange={this.handleChange('atendimento')}>
+                <Radio value="1" />1
+                <Radio value="2" />2
+                <Radio value="3" />3
+                <Radio value="4" />4
+                <Radio value="5" />5
+                </RadioGroup>
 
-                <TextField className="input-field"
-                           type="text"
-                           label="Ambiente"
-                           value={this.state.ambiente}
-                           required
-                           onChange={this.handleChange('ambiente')}/>
+                <label>Tempo</label>
+                <RadioGroup name="tempo" tempo={this.state.tempo} onChange={this.handleChange('tempo')}>
+                <Radio value="1" />1
+                <Radio value="2" />2
+                <Radio value="3" />3
+                <Radio value="4" />4
+                <Radio value="5" />5
+                </RadioGroup>       
+
+                <label>Ambiente</label>
+                <RadioGroup name="ambiente" ambiente={this.state.ambiente} onChange={this.handleChange('ambiente')}>
+                <Radio value="1" />1
+                <Radio value="2" />2
+                <Radio value="3" />3
+                <Radio value="4" />4
+                <Radio value="5" />5
+                </RadioGroup>
 
                 <TextField className="input-field"
                            type="text"
                            label="Observação"
                            value={this.state.observacao}
-                           required
+                           
                            onChange={this.handleChange('observacao')}/>
                 <Button type="submit"
                         style={{marginTop: '20px', display: 'inline-block'}}>
