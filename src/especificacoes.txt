@@ -1,1 +1,5 @@
-teste
+https://github.com/JedWatson/react-select
+https://jedwatson.github.io/react-select/
+
+
+yarn add react-select

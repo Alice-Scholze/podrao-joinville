@@ -10,7 +10,7 @@ import SelectEmpresa from "./selectEmpresa"
 class Avaliacao extends Component {
 
     state = {id: null, sabor: '', custo: '', maionese: '',
-            atedimento: '', tempo: '', ambiente: '', observacao: ''};
+            atedimento: '', tempo: '', ambiente: '', observacao: '', empresa: ''};
 
     componentWillMount = () => {
         const {id} = this.props.match.params;
@@ -31,7 +31,8 @@ class Avaliacao extends Component {
         const {atedimento} = this.state;      
         const {tempo} = this.state;      
         const {ambiente} = this.state;      
-        const {observacao} = this.state;      
+        const {observacao} = this.state; 
+        
 
 
         let objToSubmit = {
@@ -41,7 +42,7 @@ class Avaliacao extends Component {
             atedimento,
             tempo,
             ambiente,
-            observacao           
+            observacao    
         };
         FirebaseService.pushData('avaliacoes', objToSubmit);
 

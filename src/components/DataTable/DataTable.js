@@ -6,9 +6,6 @@ import {privateUrls} from "../../utils/urlUtils";
 
 export const DataTable = ({data}) => {
 
-    const remove = (id) => {
-        FirebaseService.remove(id, 'leituras');
-    };
 
     return <React.Fragment>
         <Typography variant="headline" component="h2">Lista dos Podrões </Typography>
@@ -27,7 +24,7 @@ export const DataTable = ({data}) => {
                             <TableCell>{item.empresa}</TableCell>
                             <TableCell>{item.endereco}</TableCell>   
                             <TableCell>
-                                <Button onClick={() => remove(item.key)}>
+                                <Button>
                                     Remover
                                 </Button>
 
