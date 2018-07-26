@@ -2,11 +2,11 @@ import {connect} from "react-redux";
 import {Redirect, withRouter} from "react-router-dom";
 import {compose} from "recompose";
 import React from "react";
-import {urls} from "../../utils/urlUtils";
+import {urls, privateUrls} from "../../utils/urlUtils";
 
 const ifLoggedGoToHome = (userAuth, Component, props) => {
     return userAuth != null
-        ? <Redirect to={"/"}/>
+        ? <Redirect to={privateUrls.home.path}/>
         : <Component {...props}/>
 };
 

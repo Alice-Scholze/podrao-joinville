@@ -51,7 +51,7 @@ class App extends Component {
                                    render={(props) =>
                                     <NavigationLoggedWrapper component={Login} {...props}/>}
                          />                            
-                            <Route exact path={"/"}
+                            <Route exact path={privateUrls.home.path}
                                    render={(props) =>
                                        <NavigationWrapper component={Welcome} {...props}/>}
                             />
