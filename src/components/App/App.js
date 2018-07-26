@@ -46,7 +46,7 @@ class App extends Component {
                     <TopBar/>
                     <Card style={{margin: '50px'}}>
                         <CardContent>
-                            <Route exact path={urls.login.path}
+                            <Route exact path={privateUrls.login.path}
                                    render={(props) =>
                                     <NavigationLoggedWrapper component={Login} {...props}/>}
                          />                            

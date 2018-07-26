@@ -50,7 +50,7 @@ class Avaliacao extends Component {
             keyEmpresa    
         };
         FirebaseService.pushData('avaliacoes', objToSubmit);
-
+        this.props.history.push(urls.home.path);
     };
 
     handleChange = name => event => {

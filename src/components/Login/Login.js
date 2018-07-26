@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Button, TextField, Typography} from "material-ui";
 import FirebaseService from "../../services/FirebaseService";
-import {urls} from "../../utils/urlUtils";
+import {urls, privateUrls} from "../../utils/urlUtils";
 import {withRouter} from "react-router-dom";
 
 class Login extends Component {
@@ -17,7 +17,7 @@ class Login extends Component {
         const {password} = this.state;
         FirebaseService.login(email, password)
             .then(() => {
-                this.props.history.push(urls.home.path);
+                this.props.history.push(privateUrls.home.path);
             })
             .catch(error => {
                 alert(error.message);
