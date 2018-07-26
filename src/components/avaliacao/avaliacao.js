@@ -54,39 +54,22 @@ class Avaliacao extends Component {
     };
 
     handleChange = name => event => {
-        this.setState({
-            /*if(name = "sabor"){
-                sabor = event.target.value;
-            },
-            if(name = "custo"){
-                custo = event.target.value;
-            },
-            if(name = "maionese"){
-                maionese = event.target.value;
-            },
-            if(name = "atendimento"){
-                atendimento = event.target.value;
-            },
-            if(name = "tempo"){
-                tempo = event.target.value;
-            },
-            if(name = "ambiente"){
-                ambiente = event.target.value;
-            }*/
-            [name]: event
-        });
-    };/*
-    handleChange(value, name) {
-        this.setState({[name]: value});
-      };
-    */
+        if(name == 'observacao'){
+            this.setState({
+                [name]: event.target.value
+            });
+        }else{
+            this.setState({
+                [name]: event
+            });
+        }
+    };
     render = () => {
         return (<React.Fragment>
             
             <Typography variant="headline" component="h2">Avaliar Empresa</Typography>
             <SelectEmpresa/>
-            <form>
-            </form>
+            <br/>
             <form onSubmit={this.submit}>
                 <label>Sabor</label>
                 <RadioGroup name="sabor" sabor={this.state.sabor} onChange={this.handleChange('sabor')}>
